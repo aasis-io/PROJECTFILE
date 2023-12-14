@@ -86,3 +86,8 @@ button:hover {
   cursor: pointer;
   background-color: #125888;
 }
+
+#wrapper > span{
+  display: block;
+  margin-top: 1rem;
+}
