@@ -21,32 +21,27 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  
-form{
-  padding: 1.5rem;
-  background-color: #ffffff;
-  border-radius: 0.25rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
+
+  form {
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
 }
 
-.hello-title{
+.hello-title {
   margin-bottom: 6px;
 }
 
-h2 > span{
-  color: #125888;
-}
-
-.hello-title > span{
+.hello-title > span {
   color: var(--text-color);
-  font: 500 17px/1 "Poppins",sans-serif;
+  font: 500 18px/1 "Poppins", sans-serif;
 }
 
 .txt-field {
   padding: 8px 0;
 }
-
 
 label {
   display: block;
@@ -87,7 +82,7 @@ button:hover {
   background-color: #125888;
 }
 
-#wrapper > span{
+#wrapper > span {
   display: block;
   margin-top: 1rem;
 }
