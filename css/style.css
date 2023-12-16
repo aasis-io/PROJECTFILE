@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --text-color: #323232;
+  --text-color: #3d3d3d;
+  --button-color: #07afd4;
+  --hover-color: #125888;
+  --white-color: #ffffff;
 }
 
 * {
@@ -72,17 +75,169 @@ button {
   text-transform: uppercase;
   border: none;
   color: white;
-  background-color: #07afd4;
+  background-color: var(--button-color);
   border-radius: 4px;
   transition: 0.3s ease-in-out;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #125888;
+  background-color: var(--hover-color);
 }
 
 #wrapper > span {
   display: block;
   margin-top: 1rem;
+}
+
+.form-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+/* ==========
+Main Page Start
+========== */
+
+@media only screen and (min-width: 1400px) {
+  .flex-box {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+}
+header {
+  margin-top: 1.2rem;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo a {
+  display: inline-block;
+  width: 125px;
+  height: 75px;
+}
+
+.logo a > img {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  ul {
+    display: flex;
+  }
+}
+
+nav > ul > li {
+  display: flex;
+}
+
+ul > li > a {
+  color: var(--text-color);
+  font: 700 16px/1 "Poppins", sans-serif;
+  padding: 8px 24px;
+  transition: 0.3s ease-in-out;
+}
+
+ul > li > a:hover {
+  color: var(--button-color);
+}
+
+.my-navbar {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+}
+
+.login-panel > ul {
+  gap: 20px;
+}
+
+.login-panel li:first-child a {
+  padding: 10px 24px;
+}
+
+.login-panel li > a {
+  background-color: var(--hover-color);
+  border-radius: 4px;
+  color: white;
+}
+.login-panel li > a:hover {
+  color: white;
+  border-color: var(--button-color);
+  background-color: var(--button-color);
+}
+
+.login-panel li:last-child a {
+  color: var(--hover-color);
+  background: none;
+  border: 2px solid var(--hover-color);
+}
+.login-panel li:last-child a:hover {
+  color: var(--white-color);
+  border-color: var(--button-color);
+  background-color: var(--button-color);
+}
+
+/* ==========
+Banner
+========== */
+
+.banner-wrap {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+}
+
+.text {
+  width: 35%;
+}
+
+.text > h1 {
+  font: 800 32px/1 "Poppins", sans-serif;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+h1 > span {
+  margin-top: 0.5rem;
+  font-size: 56px;
+  display: block;
+}
+
+.text > span {
+  display: block;
+  margin: 1rem 0;
+}
+
+.text > a {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: var(--white-color);
+  background-color: var(--hover-color);
+  transition: 0.3s ease-in-out;
+}
+
+.text > a:hover {
+  color: var(--white-color);
+  background-color: var(--button-color);
+}
+
+.banner-img {
+  width: 65%;
+  display: flex;
+  justify-content: end;
+}
+
+.banner-img > img {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
 }
