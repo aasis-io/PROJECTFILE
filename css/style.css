@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --text-color: #303030;
+  --text-color: #181818;
   --button-color: #b5c528;
   --hover-color: #668b17;
   --white-color: #ffffff;
@@ -35,13 +35,12 @@ a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-  form {
-    padding: 1.5rem;
-    background-color: #ffffff;
-    border-radius: 0.25rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  }
+}
+form {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .hello-title {
