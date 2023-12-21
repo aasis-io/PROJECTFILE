@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Enter your email" name="email" required>
+                            <input type="email" placeholder="Enter your email" name="email" required>
                         </div>
 
                         <div class="input-field">
