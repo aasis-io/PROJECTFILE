@@ -19,3 +19,10 @@ function togglePassword() {
   passwordInputField.type = passwordToggleButton.checked ? "text" : "password";
   passwordInputField2.type = passwordToggleButton.checked ? "text" : "password";
 }
+
+
+
+
+
+var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+

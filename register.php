@@ -6,7 +6,16 @@ $user = new User();
 @session_start();
 if (isset($_POST['submit'])) {
     $user->set('fullname', $_POST['fullname']);
-    $user->set('email', $_POST['email']);
+
+
+
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $invalidEmail = "Invalid Email Format!";
+    } else {
+        $user->set('email', $_POST['email']);
+    }
+
+
     $user->set('age', $_POST['age']);
     $user->set('phone', $_POST['phone']);
     $user->set('gender', $_POST['gender']);
@@ -58,7 +67,7 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <header>Registration</header>
 
-        <form action="#" method="post">
+        <form action="#" method="post" novalidate>
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -77,6 +86,9 @@ if (isset($_POST['submit'])) {
                         <div class="input-field">
                             <label>Email</label>
                             <input type="email" placeholder="Enter your email" name="email" required>
+                            <?php if (isset($invalidEmail)) { ?>
+                                <small> <?php echo $invalidEmail ?></small>
+                            <?php } ?>
                         </div>
 
                         <div class="input-field">
