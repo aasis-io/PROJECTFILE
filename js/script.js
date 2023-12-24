@@ -20,9 +20,11 @@ function togglePassword() {
   passwordInputField2.type = passwordToggleButton.checked ? "text" : "password";
 }
 
+function alertCloser() {
+  var alertBoxes = document.querySelectorAll(".alert");
 
-
-
-
-var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
+  // Use forEach to add the "alertClosed" class to each element
+  alertBoxes.forEach(function (alertBox) {
+    alertBox.classList.add("alertClosed");
+  });
+}

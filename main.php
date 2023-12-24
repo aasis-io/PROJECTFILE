@@ -8,7 +8,14 @@
 $email = "12345@gmail.com";
 
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+// if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//     echo "Invalid Email: " . $email;
+// } else {
+//     echo "Valid Email: " . $email;
+// }
+
+
+if (!preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ' ,$email)) {
     echo "Invalid Email: " . $email;
 } else {
     echo "Valid Email: " . $email;

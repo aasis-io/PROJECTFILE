@@ -7,30 +7,31 @@ $user = new User();
 if (isset($_POST['submit'])) {
     $user->set('fullname', $_POST['fullname']);
 
-
-
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $invalidEmail = "Invalid Email Format!";
+    } elseif (strlen($_POST['phone']) != 10) {
+        $invalidPhone = "Invalid Phone Number!";
+    } elseif (strlen($_POST['password']) < 8) {
+        $invalidPasswordLength = "Minimum Password Length is 8!";
+    } elseif (($_POST['password']) != ($_POST['confirmPassword'])) {
+        $invalidPassword = "Password Doesn't Match!";
     } else {
         $user->set('email', $_POST['email']);
-    }
+        $user->set('age', $_POST['age']);
+        $user->set('phone', $_POST['phone']);
+        $user->set('gender', $_POST['gender']);
+        $user->set('occupation', $_POST['fullname']);
+        $user->set('area', $_POST['area']);
+        $user->set('address', $_POST['address']);
+        $user->set('password', $_POST['password']);
 
-
-    $user->set('age', $_POST['age']);
-    $user->set('phone', $_POST['phone']);
-    $user->set('gender', $_POST['gender']);
-    $user->set('occupation', $_POST['fullname']);
-    $user->set('area', $_POST['area']);
-    $user->set('address', $_POST['address']);
-    $user->set('password', $_POST['password']);
-
-
-    $result = $user->save();
-    if (is_integer($result)) {
-        $ErrMs = "";
-        $msg = "Registered Successfully with id " . $result;
-    } else {
-        $msg = "";
+        $user->save();
+        // if (is_integer($result)) {
+        //     $ErrMs = "";
+        //     $msg = "Registered Successfully with id " . $result;
+        // } else {
+        //     $msg = "";
+        // }
     }
 }
 
@@ -53,17 +54,24 @@ if (isset($_POST['submit'])) {
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
     <title>User Registration Form</title>
 </head>
 
 <body>
 
+
     <?php if (isset($msg)) { ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert"><i class="bi bi-check-circle me-1"></i><?php echo $msg;  ?><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-    <?php  } ?>
+        <div class="alert-container">
+            <div class="alert alert-success"><?php echo $msg;  ?> <button class="alertTerminator" onclick="alertCloser()"><i class='bx bx-x'></i></button> </div>
+        </div><?php  } ?>
     <?php if (isset($ErrMsg)) { ?>
-        <div class="alert alert-danger alert-dismissible fade show"><i class="bi bi-exclamation-octagon me-1"></i><?php echo $ErrMsg;  ?><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-    <?php  } ?>
+        <div class="alert-container">
+            <div class="alert alert-danger"><?php echo $ErrMsg;  ?> <button class="alertTerminator" onclick="alertCloser()"><i class="bx bx-x"></i></button> </div>
+        </div> <?php  } ?>
+
     <div class="container">
         <header>Registration</header>
 
@@ -94,6 +102,10 @@ if (isset($_POST['submit'])) {
                         <div class="input-field">
                             <label>Mobile Number</label>
                             <input type="number" placeholder="Enter mobile number" name="phone" required>
+                            <?php if (isset($invalidPhone)) { ?>
+                                <small> <?php echo $invalidPhone ?></small>
+                            <?php } ?>
+
                         </div>
 
                         <div class="input-field">
@@ -102,7 +114,6 @@ if (isset($_POST['submit'])) {
                                 <option disabled selected>Select gender</option>
                                 <option>Male</option>
                                 <option>Female</option>
-                                <option>Others</option>
                             </select>
                         </div>
 
@@ -150,11 +161,15 @@ if (isset($_POST['submit'])) {
                         <div class="input-field">
                             <label>Create Password</label>
                             <input type="password" id="passwordField" name="password" placeholder="Create new password" required>
+
                         </div>
 
                         <div class="input-field">
                             <label>Confirm Password</label>
-                            <input type="password" id="passwordField2" placeholder="Re-enter password" required>
+                            <input type="password" id="passwordField2" name="confirmPassword" placeholder="Re-enter password" required>
+                            <?php if (isset($invalidPassword)) { ?>
+                                <small> <?php echo $invalidPassword ?></small>
+                            <?php } ?>
                         </div>
                         <div class="input-field show-password">
                             <input type="checkbox" id="passwordToggler" onclick="togglePassword()"> <label for="passwordToggler">Show
@@ -175,7 +190,6 @@ if (isset($_POST['submit'])) {
         </form>
 
     </div>
-
     <script src="js/script.js"></script>
 </body>
 

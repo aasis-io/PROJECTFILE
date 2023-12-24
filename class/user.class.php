@@ -17,7 +17,8 @@ class User extends Common
 
         $conn->query($sql);
         if ($conn->affected_rows == 1 && $conn->insert_id > 0) {
-            return $conn->insert_id;
+            // return $conn->insert_id;
+            header('Location:index.php?msg = "Registered Successfully"');
         } else {
             return false;
         }

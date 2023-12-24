@@ -12,7 +12,55 @@ body {
   align-items: center;
   justify-content: center;
   background: #4070f4;
+  flex-direction: column;
 }
+
+small {
+  color: red !important;
+  position: absolute;
+  bottom: -1rem;
+}
+
+.alert {
+  display: flex;
+  place-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  justify-content: space-between;
+}
+.alert-success {
+  background-color: #b6f7b1;
+  color: #01862e;
+}
+
+.alert-success > button {
+  color: #01862e;
+}
+
+.alertClosed {
+  display: none !important;
+}
+
+.alert button {
+  border: none;
+  background: none;
+  display: flex;
+  cursor: pointer;
+}
+
+.alert button > i {
+  font-size: 32px;
+}
+
+.alert-container {
+
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
 .container {
   position: relative;
   max-width: 900px;
@@ -51,16 +99,7 @@ body {
   background-color: #fff;
   transition: 0.3s ease;
 }
-.container form .form.second {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(100%);
-}
-form.secActive .form.second {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-}
+
 form.secActive .form.first {
   opacity: 0;
   pointer-events: none;
@@ -86,6 +125,7 @@ form .fields .input-field {
   width: calc(100% / 3 - 15px);
   flex-direction: column;
   margin: 4px 0;
+  position: relative;
 }
 .input-field label {
   font-size: 12px;
@@ -171,11 +211,11 @@ form .buttons button,
 }
 
 .show-password {
-    margin-top: 0;
-    flex-direction: row !important;
-    gap: 12px;
-    align-items: center;
-  }
+  margin-top: 0;
+  flex-direction: row !important;
+  gap: 12px;
+  align-items: center;
+}
 
 @media only screen and (min-width: 768px) {
   .show-password {
