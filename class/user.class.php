@@ -18,11 +18,14 @@ class User extends Common
         $conn->query($sql);
         if ($conn->affected_rows == 1 && $conn->insert_id > 0) {
             // return $conn->insert_id;
-            header('Location:index.php?msg = "Registered Successfully"');
+            header('Location:index.php?v="Registered Successfully"');
         } else {
+            header('Location:register.php?v="Error Occured!"');
             return false;
         }
     }
+
+
     // public function retrieve()
     // {
     //     $conn = mysqli_connect('localhost', 'root', '', 'outsidelime');
