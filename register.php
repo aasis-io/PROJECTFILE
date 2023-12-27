@@ -6,8 +6,6 @@ if (isset($_GET['v'])) {
     $errorMsg = $_GET['v'];
 }
 
-
-
 @session_start();
 if (isset($_POST['submit'])) {
     $user->set('fullname', $_POST['fullname']);

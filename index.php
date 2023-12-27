@@ -29,6 +29,6 @@ if (isset($_GET['v'])) {
     <a href="register.php">Hello! Let's go back.</a>
 
     <script src="js/script.js"></script>
-</body>
+</body> 
 
 </html>
