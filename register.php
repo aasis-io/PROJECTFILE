@@ -6,6 +6,8 @@ if (isset($_GET['v'])) {
     $errorMsg = $_GET['v'];
 }
 
+$pattern = '/^(98[4-9]|97[7-9]|96[6-9])\d{7}$/';
+
 @session_start();
 if (isset($_POST['submit'])) {
     $user->set('fullname', $_POST['fullname']);
@@ -14,7 +16,7 @@ if (isset($_POST['submit'])) {
         $invalidEmail = "Invalid Email Format!";
     } elseif (strlen($_POST['phone']) != 10) {
         $invalidPhone = "Invalid Phone Number Length!";
-    } elseif ($_POST['phone'] == "^(98[4-9]|97[7-9]|96[6-9])\d{7}$") {
+    } elseif (!preg_match($pattern, $_POST['phone'])) {
         $invalidPhone = "Invalid Number Format";
     } elseif (strlen($_POST['password']) < 8) {
         $invalidPasswordLength = "Minimum Password Length is 8!";
