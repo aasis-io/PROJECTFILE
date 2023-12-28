@@ -12,6 +12,11 @@ $pattern = '/^(98[4-9]|97[7-9]|96[6-9])\d{7}$/';
 if (isset($_POST['submit'])) {
     $user->set('fullname', $_POST['fullname']);
 
+
+    if (empty($_POST['fullname'])) {
+        $emptyName = "Name Field Empty!";
+    }
+
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $invalidEmail = "Invalid Email Format!";
     } elseif (strlen($_POST['phone']) != 10) {
