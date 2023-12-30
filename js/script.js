@@ -28,3 +28,6 @@ function alertCloser() {
     alertBox.classList.add("alertClosed");
   });
 }
+
+
+
