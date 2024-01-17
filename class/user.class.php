@@ -16,6 +16,7 @@ class User extends Common
                '$this->phone','$this->gender', '$this->occupation', '$this->area', '$this->address', '$this->password')";
 
         $conn->query($sql);
+        
         if ($conn->affected_rows == 1 && $conn->insert_id > 0) {
             // return $conn->insert_id;
             header('Location:index.php?v="Registered Successfully"');
